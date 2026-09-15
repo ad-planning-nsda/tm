@@ -47,6 +47,21 @@
 
   <!-- ================= PUBLIC VIEW ================= -->
   <section id="viewPublic">
+    <div class="row g-3 mb-4" id="statsRowPublic">
+      <div class="col-6 col-md-3">
+        <div class="stat-card stat-green"><i class="bi bi-list-task"></i><div><div class="stat-num" id="statTotalPublic">0</div><div class="stat-label">Total Tasks</div></div></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card stat-navy"><i class="bi bi-hourglass-split"></i><div><div class="stat-num" id="statPendingPublic">0</div><div class="stat-label">Pending</div></div></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card stat-sky"><i class="bi bi-check-circle-fill"></i><div><div class="stat-num" id="statCompletedPublic">0</div><div class="stat-label">Completed</div></div></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card stat-red"><i class="bi bi-exclamation-octagon-fill"></i><div><div class="stat-num" id="statEmergencyPublic">0</div><div class="stat-label">Emergency</div></div></div>
+      </div>
+    </div>
+
     <div class="card card-nsda mb-4">
       <div class="card-body">
         <div class="row g-2 align-items-end">
@@ -86,7 +101,7 @@
 
     <div class="card card-nsda d-none" id="taskCardPublic">
       <div class="card-body">
-        <h6 class="section-title">Task List <span id="taskCountPublic" class="text-muted fw-normal"></span></h6>
+        <h6 class="section-title"><i class="bi bi-clipboard-data-fill text-success"></i> Task List <span id="taskCountPublic" class="text-muted fw-normal"></span></h6>
         <div class="table-responsive">
           <table class="table table-nsda table-responsive-cards align-middle mb-0">
             <thead>
@@ -136,17 +151,31 @@
 
   <!-- ================= DASHBOARD VIEW ================= -->
   <section id="viewDashboard" class="d-none">
-    <ul class="nav nav-tabs" id="dashTabs">
-      <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabTasks">Task List</button></li>
-      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabAdd">Add Task</button></li>
-      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabAccount">My Account</button></li>
-      <li class="nav-item d-none" id="adminTabItem"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabAdmin">Officer Management <span class="role-pill">Admin</span></button></li>
+    <ul class="nav nav-tabs flex-nowrap overflow-auto" id="dashTabs">
+      <li class="nav-item"><button class="nav-link active text-nowrap" data-bs-toggle="tab" data-bs-target="#tabTasks"><i class="bi bi-list-check text-success"></i> Task List</button></li>
+      <li class="nav-item"><button class="nav-link text-nowrap" data-bs-toggle="tab" data-bs-target="#tabAdd"><i class="bi bi-plus-circle-fill" style="color:var(--nsda-sky)"></i> Add Task</button></li>
+      <li class="nav-item"><button class="nav-link text-nowrap" data-bs-toggle="tab" data-bs-target="#tabAccount"><i class="bi bi-person-circle" style="color:var(--nsda-navy)"></i> My Account</button></li>
+      <li class="nav-item d-none" id="adminTabItem"><button class="nav-link text-nowrap" data-bs-toggle="tab" data-bs-target="#tabAdmin"><i class="bi bi-shield-lock-fill text-danger"></i> Officer Management <span class="role-pill">Admin</span></button></li>
     </ul>
 
     <div class="tab-content pt-3">
 
       <!-- TASK LIST -->
       <div class="tab-pane fade show active" id="tabTasks">
+        <div class="row g-3 mb-3" id="statsRowDash">
+          <div class="col-6 col-md-3">
+            <div class="stat-card stat-green"><i class="bi bi-list-task"></i><div><div class="stat-num" id="statTotalDash">0</div><div class="stat-label">Total Tasks</div></div></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card stat-navy"><i class="bi bi-hourglass-split"></i><div><div class="stat-num" id="statPendingDash">0</div><div class="stat-label">Pending</div></div></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card stat-sky"><i class="bi bi-check-circle-fill"></i><div><div class="stat-num" id="statCompletedDash">0</div><div class="stat-label">Completed</div></div></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card stat-red"><i class="bi bi-exclamation-octagon-fill"></i><div><div class="stat-num" id="statEmergencyDash">0</div><div class="stat-label">Emergency</div></div></div>
+          </div>
+        </div>
         <div class="card card-nsda mb-3">
           <div class="card-body">
             <div class="row g-2 align-items-end">
@@ -199,7 +228,7 @@
       <div class="tab-pane fade" id="tabAdd">
         <div class="card card-nsda">
           <div class="card-body">
-            <h6 class="section-title">Add New Task</h6>
+            <h6 class="section-title"><i class="bi bi-plus-circle-fill" style="color:var(--nsda-sky)"></i> Add New Task</h6>
             <div id="addTaskError" class="alert alert-danger d-none"></div>
             <div id="addTaskSuccess" class="alert alert-success d-none"></div>
             <form id="addTaskForm">
@@ -274,12 +303,12 @@
       <div class="tab-pane fade" id="tabAccount">
         <div class="card card-nsda" style="max-width:480px;">
           <div class="card-body">
-            <h6 class="section-title">My Account</h6>
+            <h6 class="section-title"><i class="bi bi-person-badge-fill" style="color:var(--nsda-navy)"></i> My Account</h6>
             <p class="mb-1"><strong>Name:</strong> <span id="accName"></span></p>
             <p class="mb-1"><strong>Designation:</strong> <span id="accDesignation"></span></p>
             <p class="mb-3"><strong>Email:</strong> <span id="accEmail"></span></p>
 
-            <h6 class="section-title mt-4">Change Password</h6>
+            <h6 class="section-title mt-4"><i class="bi bi-key-fill text-warning"></i> Change Password</h6>
             <div id="pwError" class="alert alert-danger d-none"></div>
             <div id="pwSuccess" class="alert alert-success d-none"></div>
             <form id="changePwForm">
@@ -309,7 +338,7 @@
           <div class="col-lg-5">
             <div class="card card-nsda">
               <div class="card-body">
-                <h6 class="section-title">Create Officer Account</h6>
+                <h6 class="section-title"><i class="bi bi-person-plus-fill" style="color:var(--nsda-sky)"></i> Create Officer Account</h6>
                 <div id="createOfficerError" class="alert alert-danger d-none"></div>
                 <div id="createOfficerSuccess" class="alert alert-success d-none"></div>
                 <form id="createOfficerForm">
@@ -348,7 +377,7 @@
           <div class="col-lg-7">
             <div class="card card-nsda">
               <div class="card-body">
-                <h6 class="section-title">All Officers</h6>
+                <h6 class="section-title"><i class="bi bi-people-fill" style="color:var(--nsda-navy)"></i> All Officers</h6>
                 <div class="table-responsive">
                   <table class="table table-nsda align-middle mb-0">
                     <thead><tr><th>Name</th><th>Designation</th><th>Email</th><th>Role</th><th>Reset Password</th></tr></thead>
@@ -426,7 +455,7 @@
 
 <!-- EDIT TASK MODAL (only shown to the officer who created the task) -->
 <div class="modal fade" id="editModal" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"><i class="bi bi-pencil-square text-primary"></i> Edit Task <span class="text-muted small">(SL #<span id="editModalSl"></span>)</span></h5>

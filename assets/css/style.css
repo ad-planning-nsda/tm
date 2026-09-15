@@ -94,6 +94,43 @@ body {
 
 .nav-tabs .nav-link.active { color: var(--nsda-green-dark); font-weight: 600; border-bottom: 3px solid var(--nsda-green); }
 .nav-tabs .nav-link { color: #5a6b62; }
+.nav-tabs.overflow-auto { flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+.nav-tabs.overflow-auto::-webkit-scrollbar { height: 4px; }
+.nav-tabs.overflow-auto::-webkit-scrollbar-thumb { background: var(--nsda-green); border-radius: 4px; }
+
+/* ---- Colorful summary stat cards ---- */
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--nsda-card-radius);
+  color: #fff;
+  box-shadow: 0 3px 14px rgba(20, 40, 30, 0.12);
+  height: 100%;
+}
+.stat-card i { font-size: 1.8rem; opacity: 0.9; }
+.stat-num { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+.stat-label { font-size: 0.78rem; opacity: 0.9; }
+.stat-green { background: linear-gradient(135deg, var(--nsda-green) 0%, var(--nsda-green-dark) 100%); }
+.stat-navy { background: linear-gradient(135deg, var(--nsda-navy) 0%, #1d1f66 100%); }
+.stat-sky { background: linear-gradient(135deg, var(--nsda-sky) 0%, #1a7ba8 100%); }
+.stat-red { background: linear-gradient(135deg, var(--nsda-red) 0%, #a4161a 100%); }
+
+/* ---- Focus & touch friendliness ---- */
+.form-control:focus, .form-select:focus {
+  border-color: var(--nsda-sky);
+  box-shadow: 0 0 0 0.2rem rgba(41, 171, 226, 0.25);
+}
+.btn { border-radius: 0.5rem; }
+@media (max-width: 576px) {
+  .btn-sm { padding: 0.45rem 0.7rem; font-size: 0.82rem; }
+  .stat-card { padding: 0.8rem 0.9rem; }
+  .stat-card i { font-size: 1.4rem; }
+  .stat-num { font-size: 1.2rem; }
+  .hero-strip { padding: 1.3rem 0; }
+  .hero-strip h4 { font-size: 1.15rem; }
+}
 
 /* ---- Mobile stacked table (public + dashboard task lists) ---- */
 @media (max-width: 576px) {

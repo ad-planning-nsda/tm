@@ -4,4 +4,4 @@
 // It looks like:
 // https://script.google.com/macros/s/XXXXXXXXXXXXXXXXXXXX/exec
 // ============================================================
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwwX3pugB5ls3b3OpxOZ9u0GR-Ggryz9pGGYqkMVND6Pa63Abiing8u71w5u2NKmmi-/exec';
+const WEB_APP_URL = 'PASTE_YOUR_WEB_APP_URL_HERE';

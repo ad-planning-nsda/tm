@@ -194,6 +194,18 @@ function renderPublicTasks() {
   });
 }
 
+function updateStats(tasks, prefix) {
+  const total = tasks.length;
+  const pending = tasks.filter(t => t.status === 'Pending').length;
+  const completed = tasks.filter(t => t.status === 'Completed').length;
+  const emergency = tasks.filter(t => t.priority === 'Emergency').length;
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  set('statTotal' + prefix, total);
+  set('statPending' + prefix, pending);
+  set('statCompleted' + prefix, completed);
+  set('statEmergency' + prefix, emergency);
+}
+
 async function loadPublicTasks() {
   document.getElementById('loadingBoxPublic').classList.remove('d-none');
   document.getElementById('taskCardPublic').classList.add('d-none');
@@ -203,6 +215,7 @@ async function loadPublicTasks() {
     if (!res.ok) throw new Error(res.error || 'Failed to load tasks.');
     allTasksPublic = res.tasks || [];
     renderPublicTasks();
+    updateStats(allTasksPublic, 'Public');
     document.getElementById('taskCardPublic').classList.remove('d-none');
   } catch (err) {
     document.getElementById('errorBoxPublic').textContent = 'Could not load tasks: ' + err.message;
@@ -319,6 +332,7 @@ async function loadDashTasks() {
     if (!res.ok) throw new Error(res.error || 'Failed to load tasks.');
     allTasksDash = res.tasks || [];
     renderDashTasks();
+    updateStats(allTasksDash, 'Dash');
     document.getElementById('taskCardDash').classList.remove('d-none');
   } catch (err) {
     document.getElementById('errorBoxDash').textContent = 'Could not load tasks: ' + err.message;
