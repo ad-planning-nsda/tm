@@ -1,0 +1,112 @@
+:root {
+  /* Colors pulled directly from the NSDA logo */
+  --nsda-green: #1b7a3d;   /* tallest figure */
+  --nsda-green-dark: #12552a;
+  --nsda-navy: #2e3192;    /* second figure */
+  --nsda-sky: #29abe2;     /* third figure */
+  --nsda-yellow: #fbc02d;  /* fourth figure */
+  --nsda-red: #e53935;     /* fifth figure */
+  --nsda-bg: #f5f7f6;
+  --nsda-card-radius: 0.7rem;
+}
+
+body {
+  background-color: var(--nsda-bg);
+  font-family: "Segoe UI", "Noto Sans Bengali", Arial, sans-serif;
+  color: #1f2a24;
+}
+
+/* ---- Navbar ---- */
+.navbar-nsda {
+  background: linear-gradient(100deg, var(--nsda-green) 0%, var(--nsda-navy) 100%);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+.navbar-nsda .navbar-brand, .navbar-nsda .nav-link { color: #fff !important; cursor: pointer; }
+.navbar-nsda .nav-link:hover { color: var(--nsda-yellow) !important; }
+.navbar-logo { height: 40px; width: auto; margin-right: 0.6rem; border-radius: 4px; background: #fff; padding: 2px; }
+
+.brand-title { font-weight: 700; letter-spacing: 0.3px; }
+.brand-sub { font-size: 0.78rem; color: #dfe9e3; }
+
+/* A thin 5-color strip echoing the logo's five figures */
+.rainbow-strip {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--nsda-green) 0% 20%,
+    var(--nsda-navy) 20% 40%,
+    var(--nsda-sky) 40% 60%,
+    var(--nsda-yellow) 60% 80%,
+    var(--nsda-red) 80% 100%);
+}
+
+/* ---- Hero ---- */
+.hero-strip {
+  background: linear-gradient(120deg, var(--nsda-green-dark) 0%, var(--nsda-navy) 100%);
+  color: #fff;
+  padding: 2rem 0;
+}
+
+/* ---- Cards ---- */
+.card-nsda {
+  border: none;
+  border-radius: var(--nsda-card-radius);
+  box-shadow: 0 3px 14px rgba(20, 40, 30, 0.08);
+}
+
+/* ---- Tables ---- */
+.table-nsda thead { background-color: var(--nsda-green-dark); color: #fff; }
+.table-nsda tbody tr:hover { background-color: #eef6f1; }
+
+/* ---- Status badges ---- */
+.badge-status { font-size: 0.78rem; padding: 0.4em 0.7em; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+.status-Pending { background-color: #fde3cf; color: #8a4a12; }
+.status-PutUpComplete { background-color: #d9e7fb; color: #17427a; }
+.status-Completed { background-color: #d7f3df; color: #14602f; }
+.status-AwaitingApproval { background-color: #f0e0fb; color: #5c1a86; }
+
+/* ---- Priority badges ---- */
+.priority-Emergency { background-color: #fbdadb; color: #a4161a; }
+.priority-High { background-color: #ffe5cc; color: #a64b00; }
+.priority-Medium { background-color: #fff3cd; color: #7a5c00; }
+.priority-Low { background-color: #d7f3df; color: #14602f; }
+
+/* ---- Buttons ---- */
+.btn-nsda { background-color: var(--nsda-green); border-color: var(--nsda-green); color: #fff; }
+.btn-nsda:hover { background-color: var(--nsda-green-dark); border-color: var(--nsda-green-dark); color: #fff; }
+.btn-outline-nsda { border-color: var(--nsda-green); color: var(--nsda-green); }
+.btn-outline-nsda:hover { background-color: var(--nsda-green); color: #fff; }
+
+.login-card { max-width: 420px; margin: 3rem auto; }
+
+.footer-nsda { background-color: var(--nsda-green-dark); color: #dfe9e3; padding: 1.4rem 0; margin-top: 3rem; font-size: 0.85rem; }
+
+.section-title {
+  border-left: 5px solid var(--nsda-yellow);
+  padding-left: 0.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--nsda-green-dark);
+}
+
+.role-pill { background-color: var(--nsda-navy); color: #fff; font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 999px; }
+
+.nav-tabs .nav-link.active { color: var(--nsda-green-dark); font-weight: 600; border-bottom: 3px solid var(--nsda-green); }
+.nav-tabs .nav-link { color: #5a6b62; }
+
+/* ---- Mobile stacked table (public + dashboard task lists) ---- */
+@media (max-width: 576px) {
+  .table-responsive-cards thead { display: none; }
+  .table-responsive-cards, .table-responsive-cards tbody, .table-responsive-cards tr, .table-responsive-cards td { display: block; width: 100%; }
+  .table-responsive-cards tr {
+    margin-bottom: 1rem; border: 1px solid #e2e2e2; border-radius: 0.6rem; padding: 0.6rem; background: #fff;
+    box-shadow: 0 2px 8px rgba(20,40,30,0.06);
+  }
+  .table-responsive-cards td { text-align: right; padding: 0.4rem 0.6rem; border: none; position: relative; padding-left: 45%; }
+  .table-responsive-cards td::before {
+    content: attr(data-label); position: absolute; left: 0.6rem; width: 40%; text-align: left;
+    font-weight: 600; color: var(--nsda-green-dark);
+  }
+  .navbar-logo { height: 32px; }
+}
